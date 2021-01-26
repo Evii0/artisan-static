@@ -1,0 +1,71 @@
+.title{
+    margin-top: 1.5em;
+    font-family: serpentine-bold;
+    font-size: 2em;
+}
+
+.subtitle{
+    margin-top: 0.5em;
+    font-family: serpentine-bold;
+    font-size: 1.5em;
+}
+
+.smallCol{
+    max-width: 8em;
+    width: 5em;
+}
+
+#total{
+    text-align: right;
+}
+
+.addressForm{
+    margin-right: 2em;
+}
+
+.next-btn{
+    width: 6em;
+    height: 2.4em;
+    padding: 0.5em;
+    font-family: serpentine-bold;
+    font-size: 1.4em;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px 1px#888888;
+    text-align: center;
+    background-color: #0074c3;
+    margin-left: 50vw;
+    margin-right: auto;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  a, u {
+    text-decoration: none !important;
+    color: #0067ae;
+}
+
+
+
+/*
+ * Submit Page
+ */
+.thanks{
+    font-family: serpentine-bold;
+    font-size: 1.4em;
+}
+
+.info{
+    font-family: raleway;
+    font-size: 1.2em;
+}

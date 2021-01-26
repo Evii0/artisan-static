@@ -1,0 +1,17 @@
+/*
+ * Fonts
+ */
+ @font-face {
+    font-family: serpentine-light;
+    src: url(Fonts/Serpentine-Light.otf); 
+}
+
+@font-face {
+    font-family: serpentine-bold;
+    src: url(Fonts/unicode.serpentb.ttf); 
+}
+
+@font-face {
+    font-family: raleway;
+    src: url(Fonts/Raleway-VariableFont_wght.ttf); 
+}

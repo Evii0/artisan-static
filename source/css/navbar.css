@@ -1,0 +1,40 @@
+.nav-link{
+    font-weight: 700;
+    font-family: serpentine-bold;
+    font-size: 1.3em;
+    color: rgba(255, 255, 255, .5);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  border-bottom-color:#8cc640;
+}
+
+.nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-link .active {
+    color: #8cc640;
+    border-bottom-color: #8cc640;
+}
+
+.active{
+    color: #8cc640;
+}
+
+.test{
+    color: black;
+}
+
+.nav-item{
+    height: 2.8em;
+    margin-left: 0.5em;
+}
+
+.dropdown-item{
+    font-family: serpentine-bold;
+    font-size: 1em;
+}
