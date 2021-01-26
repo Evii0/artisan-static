@@ -119,14 +119,14 @@ function addToOrder(code){
     if(sessionStorage.getItem("order") == null){
         var temp = JSON.parse('{"' + code + '": ' + parseInt(document.getElementById(code).value) + '}');
         sessionStorage.setItem("order", JSON.stringify(temp));
-        return;
     }
-
-    var tempOrder = JSON.parse(sessionStorage.getItem("order"));
-    if(tempOrder[code] == null) tempOrder[code] = parseInt(document.getElementById(code).value);
-    else tempOrder[code] = tempOrder[code] + parseInt(document.getElementById(code).value);
-    
-    sessionStorage.setItem("order", JSON.stringify(tempOrder));
+    else{
+        var tempOrder = JSON.parse(sessionStorage.getItem("order"));
+        if(tempOrder[code] == null) tempOrder[code] = parseInt(document.getElementById(code).value);
+        else tempOrder[code] = tempOrder[code] + parseInt(document.getElementById(code).value);
+        
+        sessionStorage.setItem("order", JSON.stringify(tempOrder));
+    }   
     
     document.getElementById(code).value = 0;
     resetQuantity(code);
@@ -245,6 +245,7 @@ function submitOrder(){
     Http.send(JSON.stringify({
         "order": data,
         "name": document.getElementById("name").value,
+        "email": document.getElementById("email").value,
         "phone": document.getElementById("phone").value,
         "address1": document.getElementById("addressLine1").value,
         "address2": document.getElementById("addressLine2").value,
@@ -257,6 +258,7 @@ function submitOrder(){
 
     Http.onreadystatechange = (e) => {
         console.log(Http.responseText);
-        window.location.href = "submit.html";
-    }    
+        sessionStorage.removeItem("order");
+        window.location.href = "../submit.html";
+    }
 }
