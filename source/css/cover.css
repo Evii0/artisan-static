@@ -157,7 +157,12 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  /*background-color: #333;*/
+  background: url("../Assets/architecture-1867187_1920.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
@@ -192,14 +197,14 @@ body {
 .nav-masthead .nav-link {
   padding: .25rem 0;
   font-weight: 700;
-  color: rgba(255, 255, 255, .5);
+  color: white;
   background-color: transparent;
   border-bottom: .25rem solid transparent;
 }
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
+  border-bottom-color: white;
 }
 
 .nav-masthead .nav-link + .nav-link {
@@ -261,6 +266,11 @@ body {
  * Footer
  */
  .mastfoot {
-  color: rgba(255, 255, 255, .5);
+  color: #ffffffc7;
   font-family: serpentine-light;
+}
+
+.emphasis{
+  color: rgb(0 0 0 / 30%);
+  font-family: 'serpentine-bold';
 }

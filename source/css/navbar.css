@@ -2,14 +2,18 @@
     font-weight: 700;
     font-family: serpentine-bold;
     font-size: 1.3em;
-    color: rgba(255, 255, 255, .5);
+    color: white;
     background-color: transparent;
     border-bottom: .25rem solid transparent;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  border-bottom-color:#8cc640;
+  border-bottom-color:#c0ff59;
+}
+
+.nav-item:hover{
+    color: blue;
 }
 
 .nav-link + .nav-link {
@@ -17,12 +21,12 @@
 }
 
 .nav-link .active {
-    color: #8cc640;
-    border-bottom-color: #8cc640;
+    color: #c0ff59;
+    border-bottom-color: #c0ff59;
 }
 
 .active{
-    color: #8cc640;
+    color: #c0ff59;
 }
 
 .test{
@@ -37,4 +41,18 @@
 .dropdown-item{
     font-family: serpentine-bold;
     font-size: 1em;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color:white;
+}
+
+.centerContainer{
+    margin: auto;
+}
+
+@media (min-width: 992px){
+    .centerContainer{
+        display: flex;
+    }
 }
