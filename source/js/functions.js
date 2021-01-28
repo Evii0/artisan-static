@@ -119,14 +119,14 @@ function addToOrder(code){
     if(sessionStorage.getItem("order") == null){
         var temp = JSON.parse('{"' + code + '": ' + parseInt(document.getElementById(code).value) + '}');
         sessionStorage.setItem("order", JSON.stringify(temp));
+        return;
     }
-    else{
-        var tempOrder = JSON.parse(sessionStorage.getItem("order"));
-        if(tempOrder[code] == null) tempOrder[code] = parseInt(document.getElementById(code).value);
-        else tempOrder[code] = tempOrder[code] + parseInt(document.getElementById(code).value);
-        
-        sessionStorage.setItem("order", JSON.stringify(tempOrder));
-    }   
+
+    var tempOrder = JSON.parse(sessionStorage.getItem("order"));
+    if(tempOrder[code] == null) tempOrder[code] = parseInt(document.getElementById(code).value);
+    else tempOrder[code] = tempOrder[code] + parseInt(document.getElementById(code).value);
+    
+    sessionStorage.setItem("order", JSON.stringify(tempOrder));
     
     document.getElementById(code).value = 0;
     resetQuantity(code);
@@ -150,6 +150,17 @@ async function showToast(){
     }
 }
 
+var deliveryPrice = 5;
+function updateDeliveryPrice(){
+    var selectedIndex = document.getElementById("deliverySelect").selectedIndex;
+    if(selectedIndex == 0) deliveryPrice = 5;
+    else if (selectedIndex == 1) deliveryPrice = 10;
+    else if (selectedIndex == 2) deliveryPrice = 20;
+    else deliveryPrice = 30;
+    document.getElementById("deliveryPrice").innerHTML = formatCurrency(deliveryPrice);
+    updateTotal();
+}
+
 
 function createOrder(){
     if(sessionStorage.getItem("order") == null){
@@ -165,7 +176,7 @@ function createOrder(){
     var currenCategory = "";
     var orderHtml = document.getElementById("tableBody");
 
-    var runningTotal = 0;
+    var runningTotal = deliveryPrice;
 
     for(var i = 0; i < codes.length; i++){
         if(orderData[codes[i]] != null){
@@ -186,14 +197,15 @@ function createOrder(){
             runningTotal += price * quantity;
         }
     }
+    orderHtml.innerHTML += "<tr><th scope='row' colspan='4'>Delivery</th></tr><tr><td scope='row'></td><td class='smallCol'><select name='delivery' id='deliverySelect' onchange='updateDeliveryPrice()'>" +
+        "<option>Invercargill</option><option>Southland</option><option>South Island</option><option>North Island</option></select></td><td  class='smallCol' id='deliveryPrice'>$5.00</td></tr>";
     orderHtml.innerHTML += "<tr><th id='total' scope='row' colspan='4'>Total <span style='font-weight: normal; font-style: italic;'>(exc. GST)</span>: " + formatCurrency(runningTotal) + "<br>" +
         "GST: " + formatCurrency(runningTotal * 0.15) + "<br>Total <span style='font-weight: normal; font-style: italic;'>(inc. GST)</span>: " + formatCurrency(runningTotal*1.15) + "</th></tr>";
-
-
 }
 
 function updateTotal(){
-    var runningTotal = 0;
+    console.log(deliveryPrice);
+    var runningTotal = deliveryPrice;
     var quantityElements = document.getElementsByClassName("quantity");
     for(var i = 0; i < quantityElements.length; i++){
         runningTotal += priceList[quantityElements[i].id] * quantityElements[i].value;
@@ -245,7 +257,6 @@ function submitOrder(){
     Http.send(JSON.stringify({
         "order": data,
         "name": document.getElementById("name").value,
-        "email": document.getElementById("email").value,
         "phone": document.getElementById("phone").value,
         "address1": document.getElementById("addressLine1").value,
         "address2": document.getElementById("addressLine2").value,
@@ -258,7 +269,6 @@ function submitOrder(){
 
     Http.onreadystatechange = (e) => {
         console.log(Http.responseText);
-        sessionStorage.removeItem("order");
-        window.location.href = "../submit.html";
-    }
+        window.location.href = "submit.html";
+    }    
 }
