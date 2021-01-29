@@ -257,6 +257,7 @@ function submitOrder(){
     Http.send(JSON.stringify({
         "order": data,
         "name": document.getElementById("name").value,
+        "email": document.getElementById("email").value,
         "phone": document.getElementById("phone").value,
         "address1": document.getElementById("addressLine1").value,
         "address2": document.getElementById("addressLine2").value,
@@ -269,6 +270,7 @@ function submitOrder(){
 
     Http.onreadystatechange = (e) => {
         console.log(Http.responseText);
-        window.location.href = "submit.html";
+        sessionStorage.removeItem("order");
+        window.location.href = "../submit.html";
     }    
 }
