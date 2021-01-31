@@ -108,11 +108,9 @@ function resetQuantity(code){
 }
 
 function formatCurrency(value){
-    return new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2
-      }).format(value);
+    var str = value.toFixed(2).toString();
+    var newStr = str.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    return "$" + newStr;
 }
 
 function addToOrder(code){
