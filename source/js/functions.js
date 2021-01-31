@@ -157,7 +157,7 @@ function updateDeliveryPrice(){
     else if (selectedIndex == 1) sessionStorage.setItem("deliveryPrice", "10");
     else if (selectedIndex == 2) sessionStorage.setItem("deliveryPrice", "20");
     else sessionStorage.setItem("deliveryPrice", "30");
-    document.getElementById("deliveryPrice").innerHTML = formatCurrency(sessionStorage.getItem("deliveryPrice"));
+    document.getElementById("deliveryPrice").innerHTML = formatCurrency(parseInt(sessionStorage.getItem("deliveryPrice")));
     updateTotal();
 }
 
@@ -178,7 +178,7 @@ function createOrder(){
     var currenCategory = "";
     var orderHtml = document.getElementById("tableBody");
 
-    var runningTotal = deliveryPrice;
+    var runningTotal = parseInt(sessionStorage.getItem("deliveryPrice"));
 
     for(var i = 0; i < codes.length; i++){
         if(orderData[codes[i]] != null){
@@ -206,8 +206,8 @@ function createOrder(){
 }
 
 function updateTotal(){
-    console.log(deliveryPrice);
-    var runningTotal = deliveryPrice;
+    console.log(parseInt(sessionStorage.getItem("deliveryPrice")));
+    var runningTotal = parseInt(sessionStorage.getItem("deliveryPrice"));
     var quantityElements = document.getElementsByClassName("quantity");
     for(var i = 0; i < quantityElements.length; i++){
         runningTotal += priceList[quantityElements[i].id] * quantityElements[i].value;
