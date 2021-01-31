@@ -150,21 +150,21 @@ async function showToast(){
     }
 }
 
-var deliveryPrice = 5;
 function updateDeliveryPrice(){
     sessionStorage.setItem("deliveryArea", document.getElementById("deliverySelect").value);
     var selectedIndex = document.getElementById("deliverySelect").selectedIndex;
-    if(selectedIndex == 0) deliveryPrice = 5;
-    else if (selectedIndex == 1) deliveryPrice = 10;
-    else if (selectedIndex == 2) deliveryPrice = 20;
-    else deliveryPrice = 30;
-    document.getElementById("deliveryPrice").innerHTML = formatCurrency(deliveryPrice);
+    if(selectedIndex == 0) sessionStorage.setItem("deliveryPrice", "5");
+    else if (selectedIndex == 1) sessionStorage.setItem("deliveryPrice", "10");
+    else if (selectedIndex == 2) sessionStorage.setItem("deliveryPrice", "20");
+    else sessionStorage.setItem("deliveryPrice", "30");
+    document.getElementById("deliveryPrice").innerHTML = formatCurrency(sessionStorage.getItem("deliveryPrice"));
     updateTotal();
 }
 
 
 function createOrder(){
     sessionStorage.setItem("deliveryArea", "Invercargill");
+    sessionStorage.setItem("deliveryPrice", "5");
     if(sessionStorage.getItem("order") == null){
         // Empty Order
         console.log("hi");
@@ -269,7 +269,7 @@ function submitOrder(){
         "deliveryAddress2": document.getElementById("deliveryAddressLine2").value,
         "deliveryPostcode": document.getElementById("deliveryPostcode").value,
         "deliveryArea": sessionStorage.getItem("deliveryArea"),
-        "deliveryPrice": deliveryPrice
+        "deliveryPrice": sessionStorage.getItem("deliveryPrice")
     }));
 
     Http.onreadystatechange = (e) => {
