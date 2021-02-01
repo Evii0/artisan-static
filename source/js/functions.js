@@ -265,12 +265,14 @@ function submitOrder(){
         "deliveryName": document.getElementById("deliveryName").value,
         "deliveryAddress1": document.getElementById("deliveryAddressLine1").value,
         "deliveryAddress2": document.getElementById("deliveryAddressLine2").value,
-        "deliveryPostcode": document.getElementById("deliveryPostcode").value
+        "deliveryPostcode": document.getElementById("deliveryPostcode").value,
+        "deliveryArea": sessionStorage.getItem("deliveryArea"),
+        "deliveryPrice": deliveryPrice
     }));
 
     Http.onreadystatechange = (e) => {
         console.log(Http.responseText);
-        //sessionStorage.removeItem("order");
-        //window.location.href = "../submit.html";
+        sessionStorage.removeItem("order");
+        window.location.href = "../submit.html";
     }    
 }
