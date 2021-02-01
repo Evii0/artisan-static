@@ -270,7 +270,7 @@ function submitOrder(){
 
     Http.onreadystatechange = (e) => {
         console.log(Http.responseText);
-        sessionStorage.removeItem("order");
-        window.location.href = "../submit.html";
+        //sessionStorage.removeItem("order");
+        //window.location.href = "../submit.html";
     }    
 }
