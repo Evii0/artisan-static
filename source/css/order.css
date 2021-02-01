@@ -55,6 +55,9 @@
 
 .next-btn-container{
     margin-left: 87%;
+}
+
+.submit-btn{
     margin-top: -2em;
 }
 
@@ -73,7 +76,10 @@
 @media (max-width: 799px){
     .next-btn-container{
         margin-left: 64%;
-        margin-top: 0em;
+    }
+    
+    .submit-btn{
+        margin-top: -0em;
     }
 }
 

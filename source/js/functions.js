@@ -152,6 +152,7 @@ async function showToast(){
 
 var deliveryPrice = 5;
 function updateDeliveryPrice(){
+    sessionStorage.setItem("deliveryArea", document.getElementById("deliverySelect").value);
     var selectedIndex = document.getElementById("deliverySelect").selectedIndex;
     if(selectedIndex == 0) deliveryPrice = 5;
     else if (selectedIndex == 1) deliveryPrice = 10;
@@ -163,6 +164,7 @@ function updateDeliveryPrice(){
 
 
 function createOrder(){
+    sessionStorage.setItem("deliveryArea", "Invercargill");
     if(sessionStorage.getItem("order") == null){
         // Empty Order
         console.log("hi");
