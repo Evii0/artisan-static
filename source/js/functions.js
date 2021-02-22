@@ -108,7 +108,9 @@ function resetQuantity(code){
 }
 
 function formatCurrency(value){
-    var str = value.toFixed(2).toString();
+    var str = "";
+    if(typeof(value) == "number") str = value.toFixed(2).toString();
+    else str = parseFloat(value).toFixed(2).toString();
     var newStr = str.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
     return "$" + newStr;
 }
