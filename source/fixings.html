@@ -19,7 +19,7 @@
     <link href="../css/footer.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body onload="loadPage()">
 
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark">
@@ -204,7 +204,7 @@
               </div>
               <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                  <img class="card-img-top" src="../Assets/Fixings/BKSD65B.png">
+                  <img class="card-img-top" src="../Assets/Fixings/BKDS65B.png">
                   <div class="card-body">
                     <p class="card-title">Decking Screws</p>
                     <p class="card-text"> - Torx Drive Decking Screws<br>
@@ -215,12 +215,12 @@
                          - 500 Piece pack.</p>
                     <p class="card-text"> </p>
                     <div class="d-flex justify-content-between align-items-center bottom-card">
-                      <div id="BKSD65BPrice" class="price">
+                      <div id="BKDS65BPrice" class="price">
                         $163.80
                       </div>
                       <div class="btn-group">
-                        <input id="BKSD65B" class="quantity" type="number" min="0" max="100" placeholder="0" value="0" onchange="quantityChanged('BKSD65B')">
-                        <button id="orderBtn" onclick="addToOrder('BKSD65B')" type="button" class="btn btn-sm btn-outline-secondary">Order</button>
+                        <input id="BKDS65B" class="quantity" type="number" min="0" max="100" placeholder="0" value="0" onchange="quantityChanged('BKDS65B')">
+                        <button id="orderBtn" onclick="addToOrder('BKDS65B')" type="button" class="btn btn-sm btn-outline-secondary">Order</button>
                       </div>
                     </div>
                   </div>
@@ -228,7 +228,7 @@
               </div>
               <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                  <img class="card-img-top" src="../Assets/Fixings/BKSD65.jpg">
+                  <img class="card-img-top" src="../Assets/Fixings/BKDS65.jpg">
                   <div class="card-body">
                     <p class="card-title">Decking Screws</p>
                     <p class="card-text"> - Building King Torx Drive Decking Screws<br>
@@ -239,12 +239,12 @@
                          - 500 Piece pack.</p>
                     <p class="card-text"></p>
                     <div class="d-flex justify-content-between align-items-center bottom-card">
-                      <div id="BKSD65Price" class="price">
+                      <div id="BKDS65Price" class="price">
                         $147.00
                       </div>
                       <div class="btn-group">
-                        <input id="BKSD65" class="quantity" type="number" min="0" max="100" placeholder="0" value="0" onchange="quantityChanged('BKSD65')">
-                        <button id="orderBtn" onclick="addToOrder('BKSD65')" type="button" class="btn btn-sm btn-outline-secondary">Order</button>
+                        <input id="BKDS65" class="quantity" type="number" min="0" max="100" placeholder="0" value="0" onchange="quantityChanged('BKDS65')">
+                        <button id="orderBtn" onclick="addToOrder('BKDS65')" type="button" class="btn btn-sm btn-outline-secondary">Order</button>
                       </div>
                     </div>
                   </div>
@@ -283,5 +283,6 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/holder.min.js"></script>
   <script src="../js/functions.js"></script>
+  <script src="../js/load.js"></script>
 </body>
 </html>
