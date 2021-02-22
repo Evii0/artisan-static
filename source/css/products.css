@@ -65,6 +65,10 @@
   color: #0067ae;
 }
 
+.card-body{
+  margin-bottom: 2em;
+}
+
 .card-text{
   font-family: raleway;
   font-size: 1.1em;
@@ -93,6 +97,13 @@
 .quantity{
   width: 3.1em;
   margin-right: 0.5em;
+}
+
+.stockLevel{
+  font-style: italic;
+  font-size: 0.6em;
+  color: green;
+  margin-bottom:0;
 }
 
 
