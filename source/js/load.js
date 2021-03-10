@@ -19,7 +19,10 @@ function getStockLevels(){
 // }
 
 function callback(text, type){
-    if(type == "stock") sessionStorage.setItem("stockLevels", text);
+    if(type == "stock"){
+        sessionStorage.setItem("stockLevels", text);
+        displayStock();
+    }
     else sessionStorage.setItem("stockData", text);
 }
 
@@ -32,8 +35,9 @@ function loadPage(){
         console.log("Retrieving Stock Levels");
         getStockLevels();
     }
-
-    var data = JSON.parse(sessionStorage.getItem("stockLevels"));
+    else{
+        displayStock();
+    } 
     
 
     // var container = document.querySelector(".row");
@@ -45,7 +49,10 @@ function loadPage(){
     // para[2].textContent = " - Fits Paslode Framing Guns.";
 
     // container.append(clone);
+}
 
+function displayStock(){
+    var data = JSON.parse(sessionStorage.getItem("stockLevels"));
     Object.keys(data).forEach(function(key) {
         console.log(key);
         var temp = document.getElementById(key + "Price");
